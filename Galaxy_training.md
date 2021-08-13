@@ -70,6 +70,9 @@ The signal starts to blur with increase of number of cycles because the cluster 
  a) Incomplete removal of 3' terminators and fluorophores
  b) Incorporation of nucleotides without effective 3' terminators
  
+ ## Filter and trim
+ The quality of the reads dropped towards the end of the sequence.
+ 
 
  
 
