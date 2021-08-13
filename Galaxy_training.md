@@ -1,6 +1,6 @@
 # QUALITY CONTROL
 Sequencing of RNA and DNA involves the determination of nucleotide sequence by a sequencer.For each fragment in the library a short sequence is generated also known as **reads**.No sequencing technology is perfect as all generate different types and amounts of errors.It is therefore important to assess the quality of the reads to avoid effect on downstream analysis.
-## Assessing reads in Galaxy
+## Inspecting reads in Galaxy
 * Upload data from 
 ```
 Copy the link location(https://zenodo.org/record/61771/files/GSM461178_untreat_paired_subset_1.fastq)
@@ -40,3 +40,22 @@ image
 2. What is the Phred quality score of the 3rd nucleotide of the 1st sequence? (**40**)
 
 3. What is the accuracy of this 3rd nucleotide? (**99.99%**)
+
+## Assessing quality using **fastQC**
+
+A html report is generated after running FastQC.The report consists of a modular set of analysis that gives a quick view of the overall quality of the reads.
+
+* Per Base sequence quality
+
+On the y axis is the phred quality score which on the background is divided to very good quality scores(green),scores of reasonable quality(orange) and reads of poor quality(red). 
+
+On the x- axis,are the base position in the read.For each position, a boxplot is drawn with:
+ 
+ * the median value, represented by the central red line
+ * the inter-quartile range (25-75%), represented by the yellow box
+ * the 10% and 90% values in the upper and lower whiskers
+ * the mean quality, represented by the blue line
+
+The quality of reads in most platforms tends to drop towards the end due to **signal decay** or **phasing**.
+**Signal decay**
+
