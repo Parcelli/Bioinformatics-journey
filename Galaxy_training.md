@@ -57,5 +57,15 @@ On the x- axis,are the base position in the read.For each position, a boxplot is
  * the mean quality, represented by the blue line
 
 The quality of reads in most platforms tends to drop towards the end due to **signal decay** or **phasing**.
-**Signal decay**
+ * Signal decay
+ 
+The flourescent signal intensity decays with each cycle of sequencing process.Therefore,the proportion of the signal emitted continues to decrease with each cycle yielding to a decrease of quality scores at the 3' end. 
+* Phasing
+ 
+The signal starts to blur with increase of number of cycles because the cluster looses synchronicity as the cycle progress.Some strands get random failures of nucleotide to incorporate due to ;
+ a) Incomplete removal of 3' terminators and fluorophores
+ b) Incorporation of nucleotides without effective 3' terminators
+ 
+
+ 
 
