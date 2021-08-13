@@ -17,7 +17,9 @@ Close the window
 ```
 * Inspect the fastq file
 
-The fastq file usually have 4 lines for each read as follows;
+![Fastq](https://drive.google.com/file/d/1DlEwlwcGEIH1ASliUfvxwjswYi6VtuwL/view?usp=sharing) 
+
+The fastq file usually has 4 lines for each read as follows;
 
 Line | Description
 ---- | ----
@@ -46,6 +48,8 @@ image
 A html report is generated after running FastQC.The report consists of a modular set of analysis that gives a quick view of the overall quality of the reads.
 
 * Per Base sequence quality
+
+![image](https://drive.google.com/file/d/1Ti-wMfhu-zsWSyoIyozQFZCDaL9SDcDr/view?usp=sharing) 
 
 On the y axis is the phred quality score which on the background is divided to very good quality scores(green),scores of reasonable quality(orange) and reads of poor quality(red). 
 
