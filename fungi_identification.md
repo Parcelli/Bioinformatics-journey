@@ -1,4 +1,4 @@
-# Fungi identification project
+# Fungi-identification project
 ## Data
 The data consists of 26 samples from Zanzibar
 ## Dependencies
