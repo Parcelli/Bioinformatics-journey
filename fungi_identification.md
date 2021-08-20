@@ -12,6 +12,10 @@ cd ../fastqc-results
 #run multiqc
 multiqc ./
 ```
+![image](https://drive.google.com/uc?export=view&id=1ULdnBnlEjWjMDQqiyqtTodNi4xzLnOEF) 
+
+![image](https://drive.google.com/uc?export=view&id=12r3y4d0cKRGVMGYrn_w1C0b-DbZvPFWB)  
+
 ## Quality control
 Trimmed using trimmomatic
 ```
@@ -32,6 +36,10 @@ mv *R*.fastq.gz ../trimmed-reads
 fastqc -o postfastqc *.fastq.gz
 multiqc ./
 ```
+![image](https://drive.google.com/uc?export=view&id=1s0QSleko5s6URCR60nTe83ntAB7c1UWp) 
+
+![image](https://drive.google.com/uc?export=view&id=16PVcXEgFDOPdwWc7hWoC9PQzNXqYN1hR)
+
 ## Importing data into qiime
 ```
 mkdir qiime
@@ -56,6 +64,63 @@ qiime tools import \
 --input-format PairedEndFastqManifestPhred33
 
 ```
+## Denoising using Dada2
+17 bp are trimmed from each end to remove primers if any present and the reads are truncated at 250bp for forward reads and 200 reads as informed by the post fastqc report.
+```
+#Using dada2
+qiime dada2 denoise-paired \
+--i-demultiplexed-seqs demux.qza \
+--p-trim-left-f 17 \
+--p-trim-left-r 17 \
+--p-trunc-len-f 250 \
+--p-trunc-len-r 200 \
+--o-table dada2-table.qza \
+--o-representative-sequences rep-seqs-dada2.qza \
+--o-denoising-stats dada2-denoise-stats.qza
+```
+
+```
+#Adding metadata and examining count tables
+qiime feature-table summarize \
+--i-table dada2-table.qza \
+--o-visualization dada2-table.qzv \
+--m-sample-metadata-file ./zanzibar1.tsv
+
+qiime feature-table tabulate-seqs \
+--i-data rep-seqs-dada2.qza \
+--o-visualization rep-seqs-dada2.qzv
+```
+Sample ID |	Feature Count
+--------- | ---------
+Pemba | 158768
+T | 147947
+UZI02 | 130183
+A | 122742
+Q | 118121
+S | 117305
+O | 116026
+N | 108091
+Zanzibar1 | 106866
+H | 104477
+G | 103349
+F | 102540
+B | 101460
+HO2 | 97772
+V | 93520
+M | 93107
+R | 92397
+P | 92339
+TZC | 90426
+HO1 | 88255
+Zanzibar2 | 80679
+C | 77444
+D | 73628
+U | 72359
+HYPOSP1 | 37016
+HYPOSP3 | 7381
+
+![image](https://drive.google.com/uc?export=view&id=1D1_zo8LMqxqX4p__zpIjTqZCZ2qtoV4y) 
+
 ## Training a Classifier
 ### SILVA Database
 ```
@@ -171,9 +236,35 @@ qiime taxa barplot \
 ![image](https://drive.google.com/uc?export=view&id=1v-DDh0iX0CtPXTBhucMhEqHkEWus2KEU)
 
 
+## Discussion
+
+The most abundant fungal genera present are ;
+Silva | Unite
+----- | -----
+Yueomyces | Zygosaccharomyces
+Talaromyces | Blumeria
+Cladosporium | Issatchenkia
+Phoma | Pyronema
+Myrothecium | Paraophiobolus
+
+The harmful species were not visible from classification using SILVA database but were present in UNITE classification.
+The genera present are;
+* Fusarium ;one specie(3.457% relative frequency)
+* Penicillium ;one specie(2.432% relative frequency)
+* Aspergillus ; one specie(5.263% relative frequency)
+
+Zygosaccharomyces is seen to be abundant genera.Stingless bees rely on  Zygosaccharomyces for survival.The larvae feeds on the filaments in their initial stages of development.
+Stingless bees live in symbiotic relationship with most fungi species which include; Zygosaccharomyces and Candida species found in this study.
+
+The huge difference in the taxonomic representation between the two databases would be because;
+
+* UNITE is a web-based database and sequence management environment for the molecular identification of fungi.It targets formal fungal barcode nuclear Internal Transcribed Spacer region.
+
+* SILVA is a comprehensive web resource for quality controlled database of aligned rRNA gene sequences from three domains of life; bacteria,archaea and eukaryota
 
 
-## Denoising using Dada2
+
+
  
  Challenge | Solution
  --------- | --------
@@ -182,5 +273,5 @@ qiime taxa barplot \
  Adapter path | */opt/apps/trimmomatic/0.39/adapters/NexteraPE-PE.fa*
  Illumina clip | provide the argues NexteraPE-PE.fa:2:30:10
  Pip command | unload all modules ,then *pip install send2trash*
- 
+ Qiime feature-classifier| Running the command on a single line
  
