@@ -36,8 +36,10 @@ multiqc ./
 ```
 mkdir qiime
 cd qiime
+
 pip install send2trash
 module load qiime2
+
 # Running automated python script 
 python3 ./manifest.py --input_dir ../trimmed-reads
 sort Manifest.csv >> sorted.csv
@@ -56,8 +58,9 @@ qiime tools import \
 ```
 ## Training a Classifier
 ### SILVA Database
-
+```
 #download the silva database
+
 wget https://data.qiime2.org/2021.4/common/silva-138-99-seqs.qza
 wget https://data.qiime2.org/2021.4/common/silva-138-99-tax.qza
 
@@ -67,6 +70,7 @@ qiime feature-classifier fit-classifier-naive-bayes \
   --i-reference-reads silva-138-99-seqs.qza \
   --i-reference-taxonomy silva-138-99-tax.qza \
   --o-classifier classifier.qza
+  ```
 ## Taxonomic classification
 ```
 #taxonomic classification
@@ -147,14 +151,16 @@ qiime taxa barplot \
 ```
 #### Results
 * Phyla present
-**SILVA** | **UNITE**
---------- | ----------
-https://drive.google.com/file/d/1eBiAmFAoNLRblnvAUocaW1mdIY2WLiFy/view?usp=sharing | https://drive.google.com/file/d/1Xoe9CvQMoFyD76DKrIockvFTTllLFMgC/view?usp=sharing
 
+**SILVA** 
 
+![image](https://drive.google.com/uc?export=view&id=1eBiAmFAoNLRblnvAUocaW1mdIY2WLiFy)
 
 **UNITE**
-https://drive.google.com/file/d/1Xoe9CvQMoFyD76DKrIockvFTTllLFMgC/view?usp=sharing
+
+![image](https://drive.google.com/uc?export=view&id=1Xoe9CvQMoFyD76DKrIockvFTTllLFMgC)
+
+
 
 
 
