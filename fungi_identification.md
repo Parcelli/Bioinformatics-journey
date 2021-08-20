@@ -1,7 +1,15 @@
 # Fungi identification project
 ## Data
 The data consists of 26 samples from Zanzibar
+## Dependencies
+
+* fastqc/0.11.9
+* multiqc/1.4
+* trimmomatic/0.39
+* qiime2/2020.6
+
 ## Workflow
+
 ### Quality check
 ```
 #runfastqc
