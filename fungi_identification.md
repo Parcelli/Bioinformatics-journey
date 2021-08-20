@@ -152,17 +152,23 @@ qiime taxa barplot \
 #### Results
 * Phyla present
 
-**SILVA** 
+**SILVA**                                                                                        
 
 ![image](https://drive.google.com/uc?export=view&id=1eBiAmFAoNLRblnvAUocaW1mdIY2WLiFy)
 
 **UNITE**
 
 ![image](https://drive.google.com/uc?export=view&id=1Xoe9CvQMoFyD76DKrIockvFTTllLFMgC)
+ 
+* Graphical representation of the fungal species against the bee species
 
+**SILVA**
 
+![image](https://drive.google.com/uc?export=view&id=18PAzMtaDqysETEpaVx-faK0jZXKf3GvC)
 
+**UNITE**
 
+![image](https://drive.google.com/uc?export=view&id=1v-DDh0iX0CtPXTBhucMhEqHkEWus2KEU)
 
 
 
