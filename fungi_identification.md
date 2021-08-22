@@ -59,7 +59,7 @@ module load qiime2
 # Running automated python script 
 python3 ./manifest.py --input_dir ../trimmed-reads
 sort Manifest.csv >> sorted.csv
-sed '$d' sorted.csv | sed -i '1s/^/sample-id,absolute-filepath,direction\n/' sorted.csv
+sed -i '1s/^/sample-id,absolute-filepath,direction\n/' sorted.csv
 sed '$d' sorted.csv >> ready.csv
 rm Manifest.csv && rm sorted.csv
 mv ready.csv Manifest.csv
