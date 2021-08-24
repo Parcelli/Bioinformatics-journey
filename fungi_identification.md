@@ -271,6 +271,7 @@ The huge difference in the taxonomic representation between the two databases wo
 * SILVA is a comprehensive web resource for quality controlled database of aligned rRNA gene sequences from three domains of life; bacteria,archaea and eukaryota
 
 
+## Computing diversity
 
 
  
